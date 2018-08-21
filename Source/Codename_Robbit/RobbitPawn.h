@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/PawnMovementComponent.h"
 #include "RobbitPawn.generated.h"
 
 UCLASS()
@@ -27,8 +28,13 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	void Jump(FVector jumpForce);
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float gravity = -9.81f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float jumpForce = 200.0f;
 	
 };

@@ -39,3 +39,12 @@ void ARobbitPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 }
 
+void ARobbitPawn::Jump(FVector jumpForce)
+{
+	FVector currentVelocity = GetOwner()->GetVelocity();
+
+	currentVelocity += jumpForce;
+
+	//()->GetComponentByClass<UPawnMovementComponent>();
+}
+

@@ -3,19 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
-#include "Camera/CameraComponent.h"
-#include "GameFramework/PawnMovementComponent.h"
-#include "RobbitPawn.generated.h"
+#include "GameFramework/Character.h"
+#include "Codename_Robbit/Private/BaseBlaster.h"
+#include "RobbitCharacter.generated.h"
 
 UCLASS()
-class CODENAME_ROBBIT_API ARobbitPawn : public APawn
+class CODENAME_ROBBIT_API ARobbitCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
-	ARobbitPawn();
+	// Sets default values for this character's properties
+	ARobbitCharacter();
 
 protected:
 	// Called when the game starts or when spawned
@@ -28,13 +27,15 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	void Jump(FVector jumpForce);
-
+//VARIABLES/ATRIBUTES!
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float gravity = -9.81f;
+		float robbitHealth = 1996.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float jumpForce = 200.0f;
+		float fireSpeed = 60.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		ABaseBlaster* equippedBlaster;
 	
 };
